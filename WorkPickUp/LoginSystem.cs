@@ -29,17 +29,17 @@ namespace WorkPickUp
         {
             using (SampContext context = new SampContext())
             {
-                player.SendClientMessage($"Welcome {player.Name}, to a whole new world!");
+                //player.SendClientMessage($"Welcome {player.Name}, to a whole new world!");
                 bool isContains = context.Accounts.Select(x => x.Name).Contains(player.Name);
                 if (!isContains)
                 {
-                    player.SendClientMessage($"Привет новенький, так тебя зовут {player.Name}");
+                    player.SendClientMessage($"Hello newfish {player.Name}");
                     context.Accounts.Add(new Model.Account() { Name = player.Name, Password = "123456789" });
                     context.SaveChanges();
                 }
                 else
                 {
-                    player.SendClientMessage($"Привет старпер, {player.Name}");
+                    player.SendClientMessage($"Hello, oldfish, {player.Name}");
                 }
             }
         }
